@@ -1,0 +1,15 @@
+HOSTS:
+  chrome:
+    roles:
+      - agent
+      - default
+    platform: windows-2012_r2-amd64
+    box: opentable/win-2012-standard-amd64-nocm
+    hypervisor: vagrant
+    user: vagrant
+    vagrant_memsize: 2048
+    is_cygwin: false
+CONFIG:
+  type: foss
+  log_level: verbose
+

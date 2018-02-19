@@ -1,0 +1,9 @@
+junit/
+log/
+.vagrant
+Gemfile.lock
+development/modules
+spec/fixtures/modules
+.DS_Store
+*.swp
+tags
