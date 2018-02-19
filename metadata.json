@@ -1,0 +1,41 @@
+{
+  "name": "chrome",
+  "version": "0.0.1",
+  "author": "lmayorga",
+  "summary": "Installs Google Chrome for Windows",
+  "license": "Apache-2.0",
+  "source": "",
+  "project_page": "",
+  "issues_url": "",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Windows",
+      "operatingsystemrelease": [
+        "Server 2008",
+        "Server 2008 R2",
+        "Server 2012",
+        "Server 2012 R2"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.7.0 < 6.0.0"
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.6.0 < 5.0.0"
+    },
+    {
+      "name": "puppetlabs/registry",
+      "version_requirement": ">= 1.0.0 < 3.0.0"
+    },
+    {
+      "name": "puppetlabs/powershell",
+      "version_requirement": ">= 2.0.0 < 2.1.3"
+    }
+  ]
+}
