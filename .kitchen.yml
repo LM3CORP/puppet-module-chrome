@@ -1,0 +1,48 @@
+---
+driver:
+  name: ec2
+  aws_ssh_key_id: lm3corp
+  region: us-east-1
+  availability_zone: a
+  instance_type: t2.medium
+  associate_public_ip: true
+  interface: dns
+  subnet_id: subnet-0a7ff3be03ddfe28c
+  security_group_ids: ["sg-0af113665c58cb035"]
+  retryable_tries: 120
+  disable_ssl_validation: true
+
+provisioner:
+  name: puppet_apply
+  platform: windows
+  manifests_path: spec/manifests
+  modules_path: .kitchen-modules
+  puppet_debug: true
+  puppet_verbose: true
+  resolve_with_librarian_puppet: false
+  puppet_detailed_exitcodes: true
+  puppet_whitelist_exit_code: [0, 2]
+
+verifier:
+  name: serverspec
+
+transport:
+    name: winrm
+    port: 5985
+    ssh_key: ~/.ssh/lm3corp.pem
+    connect_timeout: 60
+    connection_retries: 5
+    username: Administrator
+
+platforms:
+  - name: windows-2016
+    driver:
+      image_id: ami-052f5ff735a3c4fe2
+
+suites:
+  - name: chrome_2012r2
+    provisioner:
+      manifests: default.pp
+    verifier:
+      patterns:
+      - spec/acceptance/chrome_2012r2_spec.rb

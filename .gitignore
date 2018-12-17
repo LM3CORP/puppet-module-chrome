@@ -1,5 +1,7 @@
 junit/
 log/
+.bundle/
+vendor/
 .vagrant
 Gemfile.lock
 development/modules
@@ -7,3 +9,6 @@ spec/fixtures/modules
 .DS_Store
 *.swp
 tags
+.kitchen/
+.kitchen.local.yml
+.kitchen-modules/

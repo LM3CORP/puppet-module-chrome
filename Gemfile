@@ -12,12 +12,12 @@ gem 'winrm'
 gem 'rspec-puppet'
 gem 'rspec-puppet-facts'
 gem 'puppet-strings'
-gem 'beaker'
-gem 'beaker-rspec'
-gem 'beaker-puppet'
-gem 'beaker-puppet_install_helper'
-gem 'beaker-testmode_switcher'
 gem 'rspec-puppet-utils'
+gem 'kitchen-ec2'
+gem 'librarian-puppet'
+gem "test-kitchen"
+gem 'kitchen-puppet'
+gem 'kitchen-verifier-serverspec'
 
 platforms :mswin do
   gem "win32console"

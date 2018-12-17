@@ -1,0 +1,14 @@
+# This file is managed via modulesync
+# https://github.com/voxpupuli/modulesync
+# https://github.com/voxpupuli/modulesync_config
+#
+# see also: https://github.com/puppetlabs/beaker/blob/master/docs/how_to/hypervisors/ec2.md
+#
+# Hint: image IDs (ami-*) for the same image are different per location.
+#
+AMI:
+ # Microsoft Windows Server 2016 Base
+  windows-2016-base-us-east-1:
+    :image:
+      :winfull: ami-09f9b6f145f221569
+    :region: us-east-1
