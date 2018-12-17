@@ -14,6 +14,8 @@ gem 'rspec-puppet-facts'
 gem 'puppet-strings'
 gem 'rspec-puppet-utils'
 gem 'kitchen-ec2'
+gem 'inspec'
+gem 'kitchen-inspec'
 gem 'librarian-puppet'
 gem "test-kitchen"
 gem 'kitchen-puppet'
