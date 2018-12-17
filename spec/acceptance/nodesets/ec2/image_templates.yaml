@@ -10,5 +10,5 @@ AMI:
  # Microsoft Windows Server 2016 Base
   windows-2016-base-us-east-1:
     :image:
-      :winfull: ami-09f9b6f145f221569
+      :winfull: <%= ENV['AWS_AMI_ID'] %>
     :region: us-east-1
