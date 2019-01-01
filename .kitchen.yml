@@ -1,0 +1,51 @@
+---
+driver:
+  name: ec2
+  aws_ssh_key_id: <%= ENV['AWS_SSH_KEYNAME'] %>
+  region: us-east-1
+  availability_zone: a
+  instance_type: <%= ENV['AWS_INSTANCE_TYPE'] %>
+  associate_public_ip: true
+  interface: dns
+  subnet_id: <%= ENV['AWS_SUBNET_ID']  %>
+  security_group_ids: [ <%= ENV['AWS_SG_ID'] %> ]
+  retryable_tries: 120
+  disable_ssl_validation: true
+  user_data: ec2_windows_user_data.ps1
+
+provisioner:
+  name: puppet_apply
+  platform: windows
+  manifests_path: spec/manifests
+  modules_path: .kitchen-modules
+  puppet_debug: true
+  puppet_verbose: true
+  resolve_with_librarian_puppet: false
+  puppet_detailed_exitcodes: true
+  puppet_whitelist_exit_code: [0, 2]
+
+verifier:
+  name: inspec
+
+transport:
+    name: winrm
+    port: 5986
+    ssh_key: ~/.ssh/test-kitchen.pem
+    winrm_transport: ssl
+    ssl: true
+    connect_timeout: 60
+    connection_retries: 5
+    username: Administrator
+
+platforms:
+  - name: windows-2016
+    driver:
+      image_id: <%= ENV['AWS_AMI_ID'] %>
+
+suites:
+  - name: chrome_2012r2
+    provisioner:
+      manifests: default.pp
+    verifier:
+      inspec_tests:
+        - spec/acceptance/chrome_2012r2_spec.rb

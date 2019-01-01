@@ -1,0 +1,13 @@
+HOSTS:
+  windows-2016-base-x64:
+    roles:
+      - agent
+    platform: windows-2016-64
+    vmname: windows-2016-base-us-east-1
+    hypervisor: ec2
+    snapshot: winfull
+    amisize: t2.medium
+    user: Administrator
+CONFIG:
+  type: winfull
+  :ec2_yaml: spec/acceptance/nodesets/ec2/image_templates.yaml
